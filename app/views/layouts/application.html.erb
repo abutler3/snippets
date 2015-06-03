@@ -1,14 +1,45 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <title>Snippets</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<%= yield %>
+    <title><%= content_for?(:title) ? yield(:title) : "foundation-rails" %></title>
 
-</body>
+    <%= stylesheet_link_tag    "application" %>
+    <%= javascript_include_tag "vendor/modernizr" %>
+    <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
+
+  <body>
+    <nav class="top-bar foundation-bar" data-topbar>
+      <ul class="title-area">
+        <li class="name">
+         <span data-tooltip class="has-tip" title="Add you code snippets here"><h1 class="show-for-small-only"><a href="#">S</a></h1></span>
+         <span data-tooltip class="has-tip" title="Add you code snippets here"><h1 class="show-for-medium-only"><a href="#">Snip</a></h1></span>
+         <span data-tooltip class="has-tip" title="Add you code snippets here"><h1 class="show-for-large-only"><a href="#">Snippets</a></h1></span>
+        </li>
+      </ul>
+      <section class="top-bar-section">
+        <!-- Right Nav Section -->
+        <ul class="right">
+          <li><a  href="http://foundation.zurb.com/docs/"  target="_blank">Foundation Docs</a></li>
+          <li class="active"><a  href="http://codepen.io/ZURBFoundation/full/olduj/" target="_blank">Grid Example</a></li>
+          <li><a  href="http://codepen.io/ZURBFoundation/full/vKwHa/" target="_blank">Navigation Example</a></li>
+          <li><a  href="http://codepen.io/ZURBFoundation/full/AuvoL" target="_blank">Forms</a></li>
+          <li><a  href="http://codepen.io/ZURBFoundation/full/fcFnq" target="_blank">Interchange</a></li>
+        </ul>
+      </section>
+    </nav>
+
+    <div class="row">
+      <div class="small-12 columns">
+
+        <%= yield %>
+
+      </div>
+    </div>
+
+  </body>
 </html>
