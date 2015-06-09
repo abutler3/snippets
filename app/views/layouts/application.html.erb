@@ -16,19 +16,18 @@
     <nav class="top-bar foundation-bar" data-topbar>
       <ul class="title-area">
         <li class="name">
-         <span data-tooltip class="has-tip" title="Add you code snippets here"><h1 class="show-for-small-only"><a href="#">S</a></h1></span>
-         <span data-tooltip class="has-tip" title="Add you code snippets here"><h1 class="show-for-medium-only"><a href="#">Snip</a></h1></span>
-         <span data-tooltip class="has-tip" title="Add you code snippets here"><h1 class="show-for-large-only"><a href="#">Snippets</a></h1></span>
+         <span data-tooltip class="has-tip" title="Add you code snippets here"><h1 class="show-for-small-only"><%= link_to "S", "" %></h1></span>
+         <span data-tooltip class="has-tip" title="Add you code snippets here"><h1 class="show-for-medium-only"><%= link_to "Snip", "" %></h1></span>
+         <span data-tooltip class="has-tip" title="Add you code snippets here"><h1 class="show-for-large-only"><%= link_to "Snippets", "" %></h1></span>
         </li>
+        <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+
       </ul>
       <section class="top-bar-section">
         <!-- Right Nav Section -->
         <ul class="right">
-          <li><a  href="http://foundation.zurb.com/docs/"  target="_blank">Foundation Docs</a></li>
-          <li class="active"><a  href="http://codepen.io/ZURBFoundation/full/olduj/" target="_blank">Grid Example</a></li>
-          <li><a  href="http://codepen.io/ZURBFoundation/full/vKwHa/" target="_blank">Navigation Example</a></li>
-          <li><a  href="http://codepen.io/ZURBFoundation/full/AuvoL" target="_blank">Forms</a></li>
-          <li><a  href="http://codepen.io/ZURBFoundation/full/fcFnq" target="_blank">Interchange</a></li>
+          <li><%= link_to "My Snippets", "" %></li>
+          <li><%= link_to "About Us", "" %></li>
         </ul>
       </section>
     </nav>
@@ -37,9 +36,10 @@
       <div class="small-12 columns">
 
         <%= yield %>
-
+        <div class="footer">
+          <p>&copy; Snippets 2015</p>
+        </div>
       </div>
     </div>
-
   </body>
 </html>
