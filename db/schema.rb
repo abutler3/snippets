@@ -11,7 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150620013051) do
+ActiveRecord::Schema.define(version: 20150620013353) do
+
+  create_table "snippets", force: :cascade do |t|
+    t.string   "name"
+    t.text     "summary"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
