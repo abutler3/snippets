@@ -3,6 +3,17 @@ Rails.application.routes.draw do
   devise_for :users
   # get '/home', to: 'pages#home'
   root 'pages#home'
+
+  resources :snippets
+
+  # get '/snippets', to: 'snippets#index'
+  # get '/snippets/new', to: 'snippets#new', as: 'new_snippet'
+  # post '/snippets', to: 'snippets#create'
+  # get '/snippets/:id/edit', to: 'snippets#edit', as: 'edit_recipe'
+  # patch '/snippets/:id', to: 'snippets#update'
+  # get '/snippets/:id', to: 'snippets#show', as: 'snippet'
+  # delete '/snippets/:id', to: 'snippets#destroy'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

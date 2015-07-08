@@ -1,0 +1,18 @@
+<h1>All Snippets</h1>
+<% @snippets.each do |snippet| %>
+  <div class="row">
+    <div class="large-2 columns">
+      <section class="snippet_info center">
+        <%= gravatar_for snippet.user, size: 100 %>
+        <p>User email:<br> <%= snippet.user.email %></p>
+      </section>
+    </div>
+  <div class="large-10 columns panel">
+    <h4><%= link_to snippet.name, snippet_path(snippet)%></h4>
+    <p><%= snippet.summary %></p>
+    <p>
+      <span class="quiet"><small><%= time_ago_in_words(snippet.created_at) %> ago</small></span>
+    </p>
+  </div>
+<% end %>
+<hr>

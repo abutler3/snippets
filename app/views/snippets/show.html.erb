@@ -1,0 +1,22 @@
+<p>
+  <h1><%= @snippet.name %></h1>
+</p>
+<div class="row">
+  <div class="small-4 columns push-8 center">
+    <%= gravatar_for @snippet.user, size: 200 %>
+    <p>
+      <h5>Brought to you by <%= @snippet.user.email %></h5>
+    </p>
+  </div>
+  <div class="small-8 columns pull-4">
+    <h3><%= @snippet.summary %></h3>
+    <div class="panel">
+      <p>
+        <strong>Code:</strong>
+      </p>
+      <%= @snippet.description %>
+    </div>
+  </div>
+</div>
+
+<h5><%= link_to "Return to Snippets Listing", snippets_path, class: "button small" %></h5>

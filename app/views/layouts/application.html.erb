@@ -14,10 +14,9 @@
 
   <body>
     <%= render 'layouts/nav' %>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
     <div class="row">
       <div class="small-12 columns">
+        <%= render 'layouts/messages' %>
 
         <%= yield %>
         <%= render 'layouts/footer' %>

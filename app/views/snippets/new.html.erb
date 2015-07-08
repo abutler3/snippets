@@ -1,0 +1,55 @@
+<p>
+  <h1>Create a new Snippet</h1>
+  <hr>
+</p>
+
+<% if @snippet.errors.any? %>
+  <div class="row">
+    <div class="large-12 columns">
+      <div data-alert class="alert-box alert radius">
+        <a href="#" class="close">&times;</a>
+        <h5>Correct the following errors:</h5>
+        <ul>
+          <% @snippet.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+    <div class="alert an"
+  </div>
+<% end %>
+
+<div class="row">
+  <div class="panel small-8 columns large-centered">
+    <%= form_for @snippet do |f| %>
+      <div class="row">
+        <div class="small-3 columns">
+          <%= f.label :name, class: "right inline" %>
+        </div>
+        <div class="small-9 columns">
+          <%= f.text_field :name %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="small-3 columns">
+          <%= f.label :summary, class: "right inline" %>
+        </div>
+        <div class="small-9 columns">
+          <%= f.text_field :summary %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="small-3 columns">
+          <%= f.label :description, class: "right inline" %>
+        </div>
+        <div class="small-9 columns">
+          <%= f.text_area :description %>
+        </div>
+      </div>
+
+      <%= f.submit "Create Snippet", class: "button" %>
+
+    <% end %>
+  </div>
+</div>
