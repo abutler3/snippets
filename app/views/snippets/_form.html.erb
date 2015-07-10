@@ -1,0 +1,35 @@
+<%= render 'shared/errors', obj: @snippet %>
+
+<div class="row">
+  <div class="panel small-8 columns large-centered">
+    <%= form_for @snippet do |f| %>
+      <div class="row">
+        <div class="small-3 columns">
+          <%= f.label :name, class: "right inline" %>
+        </div>
+        <div class="small-9 columns">
+          <%= f.text_field :name %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="small-3 columns">
+          <%= f.label :summary, class: "right inline" %>
+        </div>
+        <div class="small-9 columns">
+          <%= f.text_field :summary %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="small-3 columns">
+          <%= f.label :description, class: "right inline" %>
+        </div>
+        <div class="small-9 columns">
+          <%= f.text_area :description %>
+        </div>
+      </div>
+
+      <%= f.submit(@snippet.new_record? ? "Create Snippet" : "Edit Snippet", class: "button") %>
+
+    <% end %>
+  </div>
+</div>

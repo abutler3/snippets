@@ -1,6 +1,5 @@
-<p>
-  <h1><%= @snippet.name %></h1>
-</p>
+<%= render 'shared/page_title', title: @snippet.name %>
+
 <div class="row">
   <div class="small-4 columns push-8 center">
     <%= gravatar_for @snippet.user, size: 200 %>
@@ -9,12 +8,15 @@
     </p>
   </div>
   <div class="small-8 columns pull-4">
+    <%= link_to "Edit this Snippet", edit_snippet_path(@snippet), class: "button right" %>
     <h3><%= @snippet.summary %></h3>
     <div class="panel">
       <p>
         <strong>Code:</strong>
       </p>
-      <%= @snippet.description %>
+      <code>
+        <%= @snippet.description %>
+      </code>
     </div>
   </div>
 </div>

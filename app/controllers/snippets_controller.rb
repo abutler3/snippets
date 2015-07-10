@@ -14,7 +14,7 @@ class SnippetsController < ApplicationController
   def create
     @snippet = Snippet.new(snippet_params)
     @snippet.user = User.find(1)
-    
+
     if @snippet.save
       flash[:notice] = "Snippet has been created."
       redirect_to @snippet
@@ -23,6 +23,20 @@ class SnippetsController < ApplicationController
       render 'new'
     end
 
+  end
+
+  def edit
+    @snippet = Snippet.find(params[:id])
+  end
+
+  def update
+    @snippet = Snippet.find(params[:id])
+    if @snippet.update(snippet_params)
+      flash[:success] = "Snippet has been updated."
+      redirect_to snippet_path(@snippet)
+    else
+      render 'edit'
+    end
   end
 
   private
