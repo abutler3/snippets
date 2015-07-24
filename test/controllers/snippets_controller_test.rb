@@ -6,11 +6,11 @@ class SnippetsControllerTest < ActionController::TestCase
     @snippet2 = Snippet.new(name: "Rails code", summary: "Reverse string method", description: "xxdfdg", user_id: 1)
   end
 
-  test "should get index" do
-    get :index
-    assert_response :success
-    assert_not_nil assigns(:snippets)
-  end
+  # test "should get index" do
+  #   get :index
+  #   assert_response :success
+  #   assert_not_nil assigns(:snippets)
+  # end
 
   # test "should get new" do
   #   get :new

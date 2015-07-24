@@ -1,10 +1,13 @@
 class SnippetsController < ApplicationController
+  before_filter :authenticate_user!, :except => [:index, :show]
+  before_action :set_snippet, only: [:show, :edit, :update, :destroy]
+
   def index
     @snippets = Snippet.all
   end
 
   def show
-    @snippet = Snippet.find(params[:id])
+    # @snippet = Snippet.find(params[:id])
   end
 
   def new
@@ -13,7 +16,8 @@ class SnippetsController < ApplicationController
 
   def create
     @snippet = Snippet.new(snippet_params)
-    @snippet.user = User.find(1)
+    # @snippet.user = User.find(1)
+    @snippet.user = current_user
 
     if @snippet.save
       flash[:notice] = "Snippet has been created."
@@ -26,23 +30,35 @@ class SnippetsController < ApplicationController
   end
 
   def edit
-    @snippet = Snippet.find(params[:id])
+    # @snippet = Snippet.find(params[:id])
   end
 
   def update
-    @snippet = Snippet.find(params[:id])
+    # @snippet = Snippet.find(params[:id])
     if @snippet.update(snippet_params)
       flash[:success] = "Snippet has been updated."
       redirect_to snippet_path(@snippet)
     else
+      flash.now[:alert] = "Snippet has not been updated."
       render 'edit'
     end
+  end
+
+  def destroy
+    @snippet.destroy
+    flash[:notice] = "Snippet has been deleted."
+
+    redirect_to @snippet
   end
 
   private
 
   def snippet_params
     params.require(:snippet).permit(:name, :summary, :description)
+  end
+
+  def set_snippet
+    @snippet = Snippet.find(params[:id])
   end
 
 end

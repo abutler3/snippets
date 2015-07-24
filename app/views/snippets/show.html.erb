@@ -8,7 +8,6 @@
     </p>
   </div>
   <div class="small-8 columns pull-4">
-    <%= link_to "Edit this Snippet", edit_snippet_path(@snippet), class: "button right" %>
     <h3><%= @snippet.summary %></h3>
     <div class="panel">
       <p>
@@ -17,7 +16,10 @@
       <code>
         <%= @snippet.description %>
       </code>
+
     </div>
+    <%= link_to "Edit this Snippet", edit_snippet_path(@snippet), class: "button right" %>
+
   </div>
 </div>
 

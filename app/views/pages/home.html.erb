@@ -1,13 +1,24 @@
 <div class="row">
   <div class="large-12 columns">
-    <div class="superman panel callout radius center">
-      <h1>Welcome to Snippets</h1>
-      <h2>It's a little ostentatious, but useful for important content.</h2>
-      <%= link_to "Sign up now", "", class: "button round" %>
-    </div>
+    <% unless user_signed_in? %>
+      <div class="superman panel callout radius center">
+        <h1>Welcome to Snippets</h1>
+        <h2>It's a little ostentatious, but useful for important content.</h2>
+        <%= link_to "Sign up now", "", class: "button round" %>
+        <%= link_to "Browser Snippet Listing", snippets_path , class: "button round small" %>
+      </div>
+    <% end %>
+    <% if user_signed_in? %>
+        <div class="superman panel callout radius center">
+          <h1>Signed in as <%= current_user.email %></h1>
+          <h2>It's a little ostentatious, but useful for important content.</h2>
+          <%= link_to "My Snippets", snippets_path, class: "button round" %>
+          <%= link_to "New Snippet", new_snippet_path, class: "button round" %>
+        </div>
+    <% end %>
   </div>
 </div>
-
+<!--
 <div class="row">
   <div class="large-4 columns">
     <h3 class="midrow">View Snippets as Guest User</h3>
@@ -24,4 +35,4 @@
     <h2 class="left">Browse and view snippets as a guest and Sign up later</h2>
     <p><%= link_to "Browser Snippet Listing", "", class: "button round small" %></p>
   </div>
-</div>
+</div> -->
