@@ -4,7 +4,11 @@ Rails.application.routes.draw do
   # get '/home', to: 'pages#home'
   root 'pages#home'
 
-  resources :snippets
+  resources :snippets do
+    member do
+      post 'like'
+    end
+  end
 
   # get '/snippets', to: 'snippets#index'
   # get '/snippets/new', to: 'snippets#new', as: 'new_snippet'

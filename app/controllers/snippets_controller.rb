@@ -1,6 +1,6 @@
 class SnippetsController < ApplicationController
   before_filter :authenticate_user!, :except => [:index, :show]
-  before_action :set_snippet, only: [:show, :edit, :update, :destroy]
+  before_action :set_snippet, only: [:show, :edit, :update, :like, :destroy]
 
   def index
     @snippets = Snippet.all
@@ -49,6 +49,18 @@ class SnippetsController < ApplicationController
     flash[:notice] = "Snippet has been deleted."
 
     redirect_to @snippet
+  end
+
+  def like
+    @snippet.user = current_user
+    like = Like.create(like: params[:like], user: current_user, snippet: @snippet)
+    if like.valid?
+      flash[:success] = "Your selection was recorded"
+      redirect_to :back
+    else
+      flash[:danger] = "You can only like/dislike a snippet once"
+      redirect_to :back
+    end
   end
 
   private

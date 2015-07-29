@@ -13,6 +13,13 @@
     <p>
       <span class="quiet"><small><%= time_ago_in_words(snippet.created_at) %> ago</small></span>
     </p>
+    <div class="pull-right">
+      <%= snippet.thumbs_up_total %>
+      <%= link_to "+", like_snippet_path(snippet, like: true), method: :post, class: "button" %>
+      &nbsp&nbsp&nbsp&nbsp
+      <%= snippet.thumbs_down_total %>
+      <%= link_to "-", like_snippet_path(snippet, like: false), method: :post, class: "button" %>
+    </div>
   </div>
 <% end %>
 <hr>
